@@ -1,0 +1,553 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Variablat e ngjyrave */
+:root {
+  --kafe-e-hapur: #a38261;
+  --ngjyre-krem: #f5f5dc;
+  --ngjyra-e-butonave: #f9c06a;
+  --ngjyra-e-titujve: #956548;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--ngjyre-krem); 
+  color: #111; 
+}
+.background-image {
+  background-image: url("../img/pexels-cup-of-couple-7658124.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Stilet për header */
+header {
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  background-color: var(--kafe-e-hapur); /* Ngjyra e headerit */
+}
+header .logo {
+  font-size: 1.5em; 
+  font-weight: 1.0em;
+  font-family: 'Pacifico', cursive;
+  color:white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /
+}
+
+/* Stilet për linket e navigimit në header */
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease; 
+  font-size: 1.1em;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburger {
+  display: none; /* Hide on desktop */
+  cursor: pointer;
+}
+
+/* Media query për responsive dizajn */
+@media screen and (max-width: 600px) {
+  nav a:not(.active):not(.hamburger) {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+.nav-menu.active {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-menu.active a {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+header nav a.active {
+  background-color: var(--ngjyra-e-butonave);
+  border-radius: 25px;
+  padding: 10px 20px;
+}
+
+/* Seksioni hero */
+.hero {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: -90px;
+  background-color: var(--ngjyre-krem); 
+}
+
+.hero h1 {
+  font-size: 3em; 
+  margin-bottom: 0.1em;
+  color:  white;
+  margin-top: -60px;
+  margin-bottom: 2px ;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-top: 2px;
+  margin-bottom: 2em;
+  color: rgb(233, 228, 228);
+}
+
+.hero .buttons a {
+  color: #111;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 0 10px;
+  border-radius: 25px; 
+}
+
+.hero .buttons .about-us {
+  background-color: var(--ngjyra-e-butonave);
+  color: #fff;
+}
+
+.hero .buttons .call-now {
+  background-color: var(--ngjyra-e-butonave);
+  border: 1px solid var(--ngjyra-e-butonave);
+  color: white;
+}
+
+/* Caffe offers */
+.coffee-offer {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: var(--ngjyre-krem);
+  position: relative;
+  overflow: hidden;
+}
+.coffee-offer h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: var(--kafe-e-hapur);
+}
+
+.offer-wrapper {
+  position: relative;
+  margin: 0 60px;
+  overflow: hidden;
+}
+
+.offer-container {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  width: max-content;
+  gap: 25px;
+}
+
+.offer-item {
+  flex: 0 0 280px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 1.3em;
+  color: var(--kafe-e-hapur);
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background: var(--kafe-e-hapur);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.arrow.left { left: 1px; }
+.arrow.right { right: 1px; }
+
+.arrow:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+  background: #7a4a2e;
+}
+
+
+@media (max-width: 768px) {
+  .offer-wrapper {
+    margin: 0 30px;
+  }
+
+  .arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2em;
+  }
+
+  .arrow.left {
+    left: -35px;
+  }
+  .arrow.right {
+    right: -35px;
+  }
+
+  .offer-item {
+    flex: 0 0 240px;
+  }
+}
+
+.offer-item h3 {
+  font-size: 1.1em; 
+  margin: 15px 0;
+}
+
+.offer-item p {
+  font-size: 0.9em;
+  margin: 0 15px 15px 15px;
+  flex-grow: 1;
+}
+.offer-item a {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 25px;
+  padding: 7px 12px; 
+  width: 130px;
+  margin-left: 45px;
+  margin-bottom: 8px;
+
+  color: #fff;
+  background-color: #f9c06a;
+}
+
+.offer-item a:hover {
+  background-color: #8b5a00; 
+}
+
+
+.coffee-offer .price {
+  font-size: 1.2em; 
+  font-weight: bold; 
+  color: #956548; 
+  margin-top: -5px !important; 
+}
+
+/* Stilet për seksionin "About" */
+.about-shop {
+  padding: 50px 20px;
+  background-color: var(--ngjyre-krem); 
+}
+
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text {
+  width: 50%;
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 2.2em; 
+  margin-bottom: 10px;
+  color: var(--ngjyra-e-titujve);
+}
+
+.about-text h3 {
+  font-size: 1.3em; 
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.about-text p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #777;
+}
+
+.about-text a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--ngjyra-e-butonave);
+  color: #fff;
+  text-decoration: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 25px; 
+}
+
+.about-text a:hover {
+  background-color: #8b5a00;
+}
+
+.about-image {
+  width: 40%;
+}
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Stilet për seksionin "Why Different" */
+.why-different {
+  padding: 50px 20px;
+  text-align: center; 
+  background-color: var(--ngjyre-krem);
+}
+
+.why-different h2 {
+  font-size: 2.2em; 
+  margin-bottom: 10px;
+  color: var(--ngjyra-e-titujve);
+}
+
+.why-different .tagline {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.different-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.different-item {
+  width: 25%;
+  margin: 20px;
+  text-align: center;
+  background-color: #f1e2c2;
+  text-decoration: none;
+  box-sizing: border-box;
+  height: 220px;
+}
+
+.different-item img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.different-item h3 {
+  font-size: 1.3em; 
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.different-item p {
+  font-size: 1em;
+  color: #777;
+}
+
+.why-different .motto {
+  font-size: 1.1em;
+  margin-top: 30px;
+  color: #555;
+}
+
+.why-different .get-started {
+  font-size: 1.5em;
+  margin-top: 20px;
+  color: var(--ngjyra-e-titujve);
+}
+
+.why-different .join-us {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--ngjyra-e-butonave);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px; 
+  margin-top: 20px;
+}
+
+.why-different .join-us:hover {
+  background-color: #8b5a00;
+}
+
+.different-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.different-item {
+  width: 25%;
+  margin: 20px;
+  text-align: center;
+  background-color: #f1e2c2;
+  text-decoration: none;
+  box-sizing: border-box;
+  height: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Subscribe Section */
+.subscribe {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f5f5dc;
+}
+
+.subscribe h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: var(--ngjyra-e-titujve);
+}
+
+.subscribe p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.subscribe-form input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  margin-right: 10px;
+  width: 300px;
+}
+
+.subscribe-form button {
+  padding: 10px 20px;
+  background-color: var(--ngjyra-e-butonave);
+  color: white;
+  border: none;
+  border-radius: 25px; 
+  cursor: pointer;
+}
+
+.subscribe-form button:hover {
+  background-color: #8b5a00;
+}
+
+.status-message {
+  font-size: 0.9em;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.status-message.success {
+  color: #00C851;
+}
+
+.status-message.error {
+  color: #ff4444;
+}
+
+.input-error {
+  border: 2px solid #ff4444 !important;
+}
+
+.input-success {
+  border: 2px solid #00C851 !important;
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--kafe-e-hapur);
+  color: white;
+  padding: 10px 5px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.footer-column {
+  width: 200px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.footer-column h3 {
+  font-size: 1.1em; 
+  margin-bottom: 5px;
+}
+
+.footer-column p {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 5px;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  height: 1px;
+  background-color: #695e5e;
+  border: none;
+  opacity: 0.2; 
+}
